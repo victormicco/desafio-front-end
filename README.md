@@ -48,5 +48,3 @@ Boa sorte e estamos ansiosos para ver o seu trabalho! 🚀
 ### Emails para contado
 
 - dev@saudeblue.com
-- dev.l@saudeblue.com
-
