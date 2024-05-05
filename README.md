@@ -6,14 +6,18 @@ Bem-vindo ao desafio front-end! Este desafio foi projetado para avaliar suas hab
 
 O objetivo deste desafio é criar uma aplicação front-end responsiva com base em uma imagem fornecida. O candidato deve utilizar tecnologias como React.js, Next.js, Tailwind CSS e Material-UI (Mui). Além disso, a aplicação deve ser testada unitariamente e ser hospedada em algum serviço de nuvem, como Vercel. ☁️
 
-## Requisitos
+## Requisitos obrigatórios
 
-- Utilize React.js/Next.js para a criação da aplicação.
+- Utilize React.js/Next.js com typescript para a criação da aplicação.
 - Utilize Tailwind CSS ou Material-UI (Mui) para estilização.
+- Aplique os princípios do SOLID durante o desenvolvimento, dando foco ao: S-Single Responsiblity Principle e D—Dependency Inversion Principle.
 - A aplicação deve seguir o layout fornecido na imagem em anexo.
-- Aplique os princípios do SOLID durante o desenvolvimento.
+- Desenvolva uma versão mobile. 
+
+## Requisitos desejados
 - Implemente testes unitários para garantir a robustez do código.
-- Faça um fork deste repositório e desenvolva o projeto em seu próprio ambiente.
+- Torne os elementos da página interativos como dropdown e menu mobile.
+- Desenvolva outras rotas. 
 
 ## Layout
 
