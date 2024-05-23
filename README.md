@@ -1,6 +1,6 @@
 # Desafio Front-End
 
-Bem-vindo ao desafio front-end! Este desafio foi projetado para avaliar suas habilidades de desenvolvimento front-end, incluindo sua capacidade de escrever código limpo, organizado e responsivo, bem como aplicar princípios de design e desenvolvimento SOLID. 👨‍💻
+Bem-vindo ao desafio front-end BLUE! Este desafio foi projetado para avaliar suas habilidades de desenvolvimento front-end, incluindo sua capacidade de escrever código limpo, organizado e responsivo, bem como aplicar princípios de design e desenvolvimento SOLID. 👨‍💻
 
 ## Objetivo
 
