@@ -38,6 +38,7 @@ O layout da aplicação está disponível na imagem anexa. 🖼️
 Os candidatos serão avaliados com base nos seguintes critérios:
 
 - Qualidade do código: organização, clareza e boas práticas de desenvolvimento.
+- Proatividade para novas implementações, propondo ideias que complementem o desafio.
 - Adesão aos princípios SOLID.
 - Qualidade e cobertura dos testes unitários.
 - Fidelidade ao layout fornecido.
