@@ -3,20 +3,13 @@ import dynamic from "next/dynamic";
 import WholeSection from "./components/whole-section";
 
 export const metadata: Metadata = {
-  title: "Dashboard",
+	title: "Dashboard",
 };
 
-// const Hero = dynamic(
-//   () => import("./components/hero").then((mod) => mod.Hero),
-//   {
-//     ssr: false,
-//   }
-// );
-
 export default function DashboardPage() {
-  return (
-    <main className="min-h-[90vh] p-4">
-      <WholeSection />
-    </main>
-  );
+	return (
+		<main className="min-h-[90vh] p-4">
+			<WholeSection />
+		</main>
+	);
 }
