@@ -1,9 +1,11 @@
-import TodaySales from "./components/today-sales";
+import CardOfSales from "./components/card-of-sales";
 
 export default function FirstSection() {
   return (
-    <section className="bg-[#F5F6FA] min-h-[90vh] p-4">
-      <TodaySales />
+    <section className="bg-background h-full p-4 flex w-full rounded-lg">
+      <div className="w-8/12  h-[30vh]">
+        <CardOfSales className=" h-full " />
+      </div>
     </section>
   );
 }
