@@ -8,28 +8,25 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	authors: {
-		name: "Victor Micco",
-	},
-	title: {
-		default: "Blue",
-		template: "%s | Blue Company",
-	},
+  authors: {
+    name: "Victor Micco",
+  },
+  title: "Blue Company Challenge",
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="pt-BR">
-			<body className={inter.className}>
-				<QueryClientProvider client={queryClient}>
-					{children}
-					<Toaster />
-				</QueryClientProvider>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="pt-BR">
+      <body className={inter.className}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <Toaster />
+        </QueryClientProvider>
+      </body>
+    </html>
+  );
 }

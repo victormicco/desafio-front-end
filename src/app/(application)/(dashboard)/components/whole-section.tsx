@@ -6,8 +6,6 @@ export default function WholeSection() {
     <section className="max-h-[90vh] p-4 w-full overflow-auto">
       <FirstSection />
       <SecondSection />
-      <FirstSection />
-      <FirstSection />
     </section>
   );
 }
