@@ -1,0 +1,28 @@
+{
+  "name": "@blue-challenge/api",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "start:debug": "tsx watch --inspect-brk src/index.ts",
+    "start:prod": "node .",
+    "lint": "biome check --apply .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
+    "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --threads=false",
+    "test:e2e": "vitest run --config ./vitest-e2e.config.ts",
+    "type-check": "tsc"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.1",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "dependencies": {
+    "fastify": "^4.26.2"
+  }
+}
