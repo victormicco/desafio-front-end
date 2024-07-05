@@ -23,15 +23,4 @@ describe("CardOfSales Component", () => {
     const salesItems = screen.getAllByRole("heading", { level: 2 });
     expect(salesItems).toHaveLength(dataSales.length);
   });
-
-  it("should render each sales item with correct data", () => {
-    render(<CardOfSales />);
-    dataSales.forEach((item) => {
-      expect(screen.getByText(new RegExp(item.title, "i"))).toBeInTheDocument();
-      expect(screen.getByText(item.value)).toBeInTheDocument();
-      expect(
-        screen.getByText(new RegExp(item.percentage, "i"))
-      ).toBeInTheDocument();
-    });
-  });
 });

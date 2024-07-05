@@ -3,7 +3,7 @@ import SecondSection from "./second-section/second-section";
 
 export default function WholeSection() {
   return (
-    <section className="max-h-[90vh] p-4 w-full overflow-auto">
+    <section className="max-h-full p-4 w-full overflow-auto flex-col gap-y-10 flex">
       <FirstSection />
       <SecondSection />
     </section>
