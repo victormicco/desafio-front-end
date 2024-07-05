@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsup",
-    "start": "tsx src/index.ts",
+    "start": "node .",
     "dev": "tsx watch src/index.ts",
     "start:debug": "tsx watch --inspect-brk src/index.ts",
     "start:prod": "node .",
