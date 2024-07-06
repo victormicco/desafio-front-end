@@ -63,3 +63,9 @@
    http://[::1]:3333/
    ```
 
+## To do
+- [ ] Arrumar Responsividade
+- [ ]  E2E Backend
+- [ ]  E2E Front
+- [ ]  S.O.L.I.D Back
+- [ ]  Validations and Error treatment Back
