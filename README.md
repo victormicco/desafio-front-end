@@ -2,6 +2,7 @@
 ## O que há nele?
 - Foi utilizado Turborepo para construir uma arquitetura de Monorepo compartilhando pacotes entre o projeto de front-end e as rotas de back-end.
 - Princípio de inversão de dependência nos componentes para manter a boa qualidade e facilidade de testes.
+- Responsabilidade Única entre funções.
 - Testes Unitários
 - Deploy do Front-end na Vercel - Back-end na Render
 - Versão de dados com Mock e com API (Caso a API caia na Render)
