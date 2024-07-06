@@ -24,4 +24,16 @@ export async function rootRouter(
   app.get("/realityStats", async (request, reply) => {
     return rootService.realityStats();
   });
+
+  app.get("/topProducts", async (request, reply) => {
+    return rootService.topProducts();
+  });
+
+  app.get("/mapOfSales", async (request, reply) => {
+    return rootService.mapOfSales();
+  });
+
+  app.get("/serviceLevel", async (request, reply) => {
+    return rootService.serviceLevel();
+  });
 }
