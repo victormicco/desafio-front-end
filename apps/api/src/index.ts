@@ -1,8 +1,14 @@
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 import { rootRouter } from "./routes/root";
 import { RootService } from "./services/root";
 
 export const app = Fastify();
+
+app.register(cors, {
+  origin: "*",
+  methods: ["GET", "PUT", "POST", "DELETE"],
+});
 
 app.register((app) => rootRouter(app, new RootService()));
 
