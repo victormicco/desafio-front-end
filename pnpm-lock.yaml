@@ -46,7 +46,7 @@ importers:
   apps/web:
     dependencies:
       '@hookform/resolvers':
-        specifier: ^3.6.0
+        specifier: ^3.8.0
         version: 3.8.0(react-hook-form@7.52.1(react@18.3.1))
       '@radix-ui/react-alert-dialog':
         specifier: ^1.1.1
@@ -124,7 +124,7 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-hook-form:
-        specifier: ^7.51.5
+        specifier: ^7.52.1
         version: 7.52.1(react@18.3.1)
       recharts:
         specifier: 2.13.0-alpha.0

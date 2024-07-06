@@ -1,20 +1,67 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation"; // Import useRouter from next/navigation
+import { useRouter } from "next/navigation";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { BackgroundBeams } from "../../components/ui/background-beams";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useToast } from "@/components/ui/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+const FormSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username tem que ter no mínimo 2 caracteres.",
+  }),
+  password: z.string().min(3, {
+    message: "Password tem que ter no mínimo 3 caracteres.",
+  }),
+});
 
 export default function Component() {
+  const { toast } = useToast();
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
+  });
   const router = useRouter();
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    router.push("/dashboard");
-  };
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      if (data.username !== "admin" || data.password !== "admin") {
+        throw new Error("Usuário ou senha inválidos");
+      }
+      toast({
+        title: "Sucesso!",
+        description: "Você foi logado com sucesso!",
+      });
+      router.push("/dashboard");
+    } catch (error) {
+      toast({
+        title: "Erro!",
+        description: "Ocorreu um erro ao tentar logar",
+        className: "bg-red-500 text-white",
+      });
+      console.error(error);
+    }
+  }
+  const handleSubmit = (event: React.FormEvent) => {};
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-blue-100">
@@ -28,32 +75,42 @@ export default function Component() {
             Entre com suas credenciais abaixo para acessar sua conta
           </p>
         </div>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <Label htmlFor="username">E-mail</Label>
-            <Input id="username" type="text" placeholder="Digite seu e-mail" />
-          </div>
-          <div>
-            <div className="flex items-center justify-between">
-              <Label htmlFor="password">Senha</Label>
-              <Link
-                href="#"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                prefetch={false}
-              >
-                Esqueceu sua senha?
-              </Link>
-            </div>
-            <Input
-              id="password"
-              type="password"
-              placeholder="Digite sua senha"
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="w-3/3 space-y-6 flex flex-col"
+          >
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Usuário</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Digite seu Usuário " {...field} />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-          <Button type="submit" className="w-full bg-blue-700">
-            Entrar
-          </Button>
-        </form>
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Senha</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Digite sua senha " {...field} />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit">Entrar</Button>
+          </form>
+        </Form>
         <p className="text-center text-sm text-gray-600 dark:text-gray-400">
           Não tem uma conta?{" "}
           <Link

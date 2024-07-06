@@ -1,9 +1,9 @@
 export const totalRevenueData = [
-  { dia: "Segunda-feira", Pendente: 9500, Concluido: 8700 },
-  { dia: "Terça-feira", Pendente: 16000, Concluido: 14000 },
-  { dia: "Quarta-feira", Pendente: 22000, Concluido: 18000 },
-  { dia: "Quinta-feira", Pendente: 27000, Concluido: 23000 },
-  { dia: "Sexta-feira", Pendente: 32000, Concluido: 29000 },
-  { dia: "Sábado", Pendente: 37000, Concluido: 34000 },
-  { dia: "Domingo", Pendente: 42000, Concluido: 39000 },
+  { dia: "Segunda-feira", Pendente: 9800, Concluido: 8900 },
+  { dia: "Terça-feira", Pendente: 16500, Concluido: 14500 },
+  { dia: "Quarta-feira", Pendente: 22500, Concluido: 18500 },
+  { dia: "Quinta-feira", Pendente: 27500, Concluido: 23500 },
+  { dia: "Sexta-feira", Pendente: 33000, Concluido: 29500 },
+  { dia: "Sábado", Pendente: 38000, Concluido: 35000 },
+  { dia: "Domingo", Pendente: 43000, Concluido: 40000 },
 ];

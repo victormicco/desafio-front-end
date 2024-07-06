@@ -1,5 +1,4 @@
-"use client";
-
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,17 +7,34 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
-
 import { Briefcase, Ticket as TicketIcon } from "lucide-react";
-import { realityStats } from "../mock/reality-charts-data";
+import { realityStats as mockRealityStats } from "../mock/reality-charts-data";
+import { GetRealityStatsResponse } from "@/services/dashboard/types";
 
 type RealityCardProps = {
+  getRealityStats: () => Promise<GetRealityStatsResponse[]>;
   additionalClass?: string;
 };
 
 export const RealityCard: React.FC<RealityCardProps> = ({
+  getRealityStats,
   additionalClass,
 }) => {
+  const [data, setData] = useState<GetRealityStatsResponse[]>(mockRealityStats);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await getRealityStats();
+        setData(response);
+      } catch (error) {
+        console.error("Failed to fetch data from API, using mock data.", error);
+      }
+    }
+
+    fetchData();
+  }, [getRealityStats]);
+
   return (
     <Card className={additionalClass}>
       <CardHeader>
@@ -26,7 +42,7 @@ export const RealityCard: React.FC<RealityCardProps> = ({
       </CardHeader>
       <CardContent className="h-1/2">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={realityStats} barGap={4} barCategoryGap={4}>
+          <BarChart data={data} barGap={4} barCategoryGap={4}>
             <XAxis
               dataKey="name"
               tickLine={false}
@@ -81,67 +97,6 @@ export const RealityCard: React.FC<RealityCardProps> = ({
   );
 };
 
-export const AlternativeRealityCard: React.FC = () => {
-  return (
-    <Card title="Realidade">
-      <div className="flex w-full h-[350px] 2xl:w-[300px] 2xl:h-[250px] flex-col gap-2">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={realityStats} barGap={4} barCategoryGap={4}>
-            <XAxis
-              dataKey="name"
-              tickLine={false}
-              axisLine={{ strokeWidth: 0 }}
-              tick={{
-                fontSize: "12px",
-                fontWeight: "500",
-                fill: "#7B91B0",
-              }}
-            />
-            <Tooltip />
-            <Bar
-              dataKey="completedContracts"
-              name="Contratos finalizados"
-              fill="#4AB58E"
-              radius={3}
-            />
-            <Bar
-              dataKey="pendingContracts"
-              name="Aguardando"
-              fill="#FFCF00"
-              radius={3}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-
-        <div className="flex flex-col gap-2">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-[#E2FFF3] p-2.5 rounded-lg">
-                <Briefcase size={16} color="#4AB58E" />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="text-[#151D48] text-sm font-bold">
-                  Contratos finalizados
-                </h3>
-                <span className="text-[#737791] text-xs">Global</span>
-              </div>
-            </div>
-            <span className="text-[#27AE60] font-semibold">8.823</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-[#FFF4DE] p-2.5 rounded-lg">
-                <TicketIcon size={16} color="#FFB21C" />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="text-[#151D48] text-sm font-bold">Aguardando</h3>
-                <span className="text-[#737791] text-xs">Commercial</span>
-              </div>
-            </div>
-            <span className="text-[#FFA412] font-semibold">12.122</span>
-          </div>
-        </div>
-      </div>
-    </Card>
-  );
+type AlternativeRealityCardProps = {
+  getRealityStats: () => Promise<GetRealityStatsResponse[]>;
 };

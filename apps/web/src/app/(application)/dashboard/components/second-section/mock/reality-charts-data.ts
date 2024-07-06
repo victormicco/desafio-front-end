@@ -1,9 +1,9 @@
 export const realityStats = [
-  { name: "Jan", completedContracts: 11500, pendingContracts: 6700 },
-  { name: "Fev", completedContracts: 10500, pendingContracts: 7200 },
-  { name: "Mar", completedContracts: 9500, pendingContracts: 7800 },
-  { name: "Abr", completedContracts: 9200, pendingContracts: 7100 },
-  { name: "Mai", completedContracts: 11200, pendingContracts: 8300 },
-  { name: "Jun", completedContracts: 12800, pendingContracts: 6400 },
-  { name: "Jul", completedContracts: 12300, pendingContracts: 6800 },
+  { name: "Jan", completedContracts: 12000, pendingContracts: 6900 },
+  { name: "Fev", completedContracts: 11000, pendingContracts: 7500 },
+  { name: "Mar", completedContracts: 10000, pendingContracts: 8000 },
+  { name: "Abr", completedContracts: 9600, pendingContracts: 7300 },
+  { name: "Mai", completedContracts: 11500, pendingContracts: 8500 },
+  { name: "Jun", completedContracts: 13000, pendingContracts: 6600 },
+  { name: "Jul", completedContracts: 12500, pendingContracts: 7000 },
 ];

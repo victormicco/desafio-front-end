@@ -10,7 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.6.0",
+    "@hookform/resolvers": "^3.8.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -36,7 +36,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-google-charts": "^4.0.1",
-    "react-hook-form": "^7.51.5",
+    "react-hook-form": "^7.52.1",
     "recharts": "2.13.0-alpha.0",
     "sharp": "^0.33.4",
     "tailwind-merge": "^2.3.0",

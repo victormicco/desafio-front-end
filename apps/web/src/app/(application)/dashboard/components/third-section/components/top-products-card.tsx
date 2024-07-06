@@ -1,7 +1,5 @@
-"use client";
-
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import {
   Table,
   TableBody,
@@ -10,9 +8,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { productsData } from "../mock/top-products-data";
+import { productsData as mockProductsData } from "../mock/top-products-data";
+import { GetTopProductsResponse } from "@/services/dashboard/types";
 
 type ProductCardProps = {
+  getProductsData: () => Promise<GetTopProductsResponse[]>;
   customClass?: string;
 };
 
@@ -61,7 +61,25 @@ const getProgressClassNames = (type: string) => {
   }
 };
 
-export const TopProductCard: React.FC<ProductCardProps> = ({ customClass }) => {
+export const TopProductCard: React.FC<ProductCardProps> = ({
+  getProductsData,
+  customClass,
+}) => {
+  const [data, setData] = useState<GetTopProductsResponse[]>(mockProductsData);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await getProductsData();
+        setData(response);
+      } catch (error) {
+        console.error("Failed to fetch data from API, using mock data.", error);
+      }
+    }
+
+    fetchData();
+  }, [getProductsData]);
+
   return (
     <Card className={customClass}>
       <CardHeader>
@@ -78,7 +96,7 @@ export const TopProductCard: React.FC<ProductCardProps> = ({ customClass }) => {
             </TableRow>
           </TableHeader>
           <TableBody className="h-1/4">
-            {productsData.map((product) => (
+            {data.map((product) => (
               <TableRow key={product.id}>
                 <TableCell>{product.id}</TableCell>
                 <TableCell>{product.name}</TableCell>

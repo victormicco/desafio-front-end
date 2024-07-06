@@ -1,8 +1,10 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Chart } from "react-google-charts";
 import { salesMapDataRaw } from "../mock/salesMapDataRaw";
+import { GetMapOfSalesResponse } from "@/services/dashboard/types";
 
 const mapOptions = {
   region: "BR",
@@ -26,8 +28,27 @@ const transformData = (data: SalesData[]): (string | number)[][] => {
   return transformed;
 };
 
-export const SalesMap: React.FC = () => {
-  const chartData = transformData(salesMapDataRaw);
+type SalesMapProps = {
+  getMapOfSales: () => Promise<GetMapOfSalesResponse[]>;
+};
+
+export const SalesMap: React.FC<SalesMapProps> = ({ getMapOfSales }) => {
+  const [chartData, setChartData] = useState<(string | number)[][]>(
+    transformData(salesMapDataRaw)
+  );
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await getMapOfSales();
+        setChartData(transformData(response));
+      } catch (error) {
+        console.error("Failed to fetch data from API, using mock data.", error);
+      }
+    }
+
+    fetchData();
+  }, [getMapOfSales]);
 
   return (
     <div>

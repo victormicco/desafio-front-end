@@ -1,6 +1,4 @@
-"use client";
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   BarChart,
@@ -10,18 +8,24 @@ import {
   Legend,
   LegendProps,
 } from "recharts";
-import { serviceLevelData } from "../mock/service-level-data";
+import { GetServiceLevelResponse } from "@/services/dashboard/types";
 
 export interface ServiceLevelData {
   expectation: number;
   reality: number;
 }
 
-const calculateTotal = (key: keyof ServiceLevelData): number => {
-  return serviceLevelData.reduce((sum, item) => sum + item[key], 0);
+const calculateTotal = (
+  key: keyof ServiceLevelData,
+  data: ServiceLevelData[]
+): number => {
+  return data.reduce((sum, item) => sum + item[key], 0);
 };
 
-const CustomLegend: React.FC<LegendProps> = ({ payload }) => (
+const CustomLegend: React.FC<LegendProps & { data: ServiceLevelData[] }> = ({
+  payload,
+  data,
+}) => (
   <div className="flex gap-3 border-t flex-wrap justify-center">
     {payload?.map((entry, index) => (
       <div key={`item-${index}`} className="flex flex-col capitalize">
@@ -33,14 +37,35 @@ const CustomLegend: React.FC<LegendProps> = ({ payload }) => (
           {entry.value}
         </div>
         <p className="font-bold ml-4">
-          {calculateTotal(entry.value as keyof ServiceLevelData)}
+          {calculateTotal(entry.value as keyof ServiceLevelData, data)}
         </p>
       </div>
     ))}
   </div>
 );
 
-export const ServiceLevelChart: React.FC = () => {
+type ServiceLevelChartProps = {
+  getServiceLevel: () => Promise<GetServiceLevelResponse[]>;
+};
+
+export const ServiceLevelChart: React.FC<ServiceLevelChartProps> = ({
+  getServiceLevel,
+}) => {
+  const [data, setData] = useState<ServiceLevelData[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await getServiceLevel();
+        setData(response);
+      } catch (error) {
+        console.error("Failed to fetch data from API.", error);
+      }
+    }
+
+    fetchData();
+  }, [getServiceLevel]);
+
   return (
     <Card className="xl:w-1/4 pb-4 h-full">
       <CardHeader className="flex flex-row justify-between">
@@ -51,12 +76,12 @@ export const ServiceLevelChart: React.FC = () => {
       <CardContent>
         <ResponsiveContainer height={205}>
           <BarChart
-            data={serviceLevelData}
+            data={data}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
             <Legend
               wrapperStyle={{ fontSize: "14px" }}
-              content={<CustomLegend />}
+              content={<CustomLegend data={data} />}
             />
             <Tooltip />
             <Bar

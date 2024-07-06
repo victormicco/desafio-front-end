@@ -134,7 +134,7 @@ export function DesktopNavbar({ languages }: DesktopNavbarProps) {
                 <AlertDialogAction
                   aria-label="Sair da conta"
                   className="bg-red-500 hover:bg-red-500/80"
-                  onClick={() => (window.location.href = "/login")}
+                  onClick={() => (window.location.href = "/")}
                 >
                   Sair
                 </AlertDialogAction>

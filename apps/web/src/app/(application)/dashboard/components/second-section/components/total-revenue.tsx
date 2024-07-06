@@ -1,6 +1,4 @@
-"use client";
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -12,15 +10,19 @@ import {
   YAxis,
 } from "recharts";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { totalRevenueData } from "../mock/total-revenue-data";
+import { GetTotalRevenueResponse } from "@/services/dashboard/types";
+import { totalRevenueData as mockTotalRevenueData } from "../mock/total-revenue-data";
 
 type TotalRevenueProps = {
   className?: string;
+  getTotalRevenueData: () => Promise<GetTotalRevenueResponse[]>;
 };
 
-const ChartContent = () => (
+const ChartContent: React.FC<{ data: GetTotalRevenueResponse[] }> = ({
+  data,
+}) => (
   <ResponsiveContainer width="100%" height="100%">
-    <BarChart data={totalRevenueData} barGap={8} barCategoryGap={28}>
+    <BarChart data={data} barGap={8} barCategoryGap={28}>
       <CartesianGrid strokeDasharray="3 3" horizontal vertical={false} />
       <XAxis
         dataKey="dia"
@@ -42,15 +44,36 @@ const ChartContent = () => (
   </ResponsiveContainer>
 );
 
-const TotalRevenue: React.FC<TotalRevenueProps> = ({ className }) => (
-  <Card className={className}>
-    <CardHeader>
-      <CardTitle>Rendimento Total</CardTitle>
-    </CardHeader>
-    <div className="h-[230px]">
-      <ChartContent />
-    </div>
-  </Card>
-);
+const TotalRevenue: React.FC<TotalRevenueProps> = ({
+  className,
+  getTotalRevenueData,
+}) => {
+  const [data, setData] =
+    useState<GetTotalRevenueResponse[]>(mockTotalRevenueData);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await getTotalRevenueData();
+        setData(response);
+      } catch (error) {
+        console.error("Failed to fetch data from API, using mock data.", error);
+      }
+    }
+
+    fetchData();
+  }, [getTotalRevenueData]);
+
+  return (
+    <Card className={className}>
+      <CardHeader>
+        <CardTitle>Rendimento Total</CardTitle>
+      </CardHeader>
+      <div className="h-[230px]">
+        <ChartContent data={data} />
+      </div>
+    </Card>
+  );
+};
 
 export default TotalRevenue;

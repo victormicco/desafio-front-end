@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,17 +18,18 @@ import {
   LucideProps,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
+import { GetDataSalesResponse } from "@/services/dashboard/types";
+import { useToast } from "@/components/ui/use-toast";
 
 type CardOfSalesProps = {
   className?: string;
+  getDataSalesInversion: () => Promise<GetDataSalesResponse[]>;
 };
 
-// Define the icon type
 type IconType = ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
 >;
 
-// Mapping of icon names to components
 const iconMapping: Record<string, IconType> = {
   GanttChartSquare: GanttChartSquare,
   File: File,
@@ -38,13 +37,16 @@ const iconMapping: Record<string, IconType> = {
   UserPlus: UserPlus,
 };
 
-export default function CardOfSales({ className }: CardOfSalesProps) {
+export default function CardOfSales({
+  className,
+  getDataSalesInversion,
+}: CardOfSalesProps) {
   const [dataSales, setDataSales] = useState(mockDataSales);
-
+  const { toast } = useToast();
   async function getDataSales() {
     try {
-      const response = await dashboardService.getDataSales();
-      // Validate the response data structure
+      const response = await getDataSalesInversion();
+
       if (
         Array.isArray(response) &&
         response.every(
@@ -57,10 +59,12 @@ export default function CardOfSales({ className }: CardOfSalesProps) {
             item.backgroundColor
         )
       ) {
-        // Map icon strings to actual icon components
         const mappedResponse = response.map((item) => ({
           ...item,
-          icon: iconMapping[item.icon] || (() => <div>Icon not found</div>),
+          icon:
+            typeof item.icon === "string"
+              ? iconMapping[item.icon] || (() => <div>Icon not found</div>)
+              : item.icon,
         }));
         setDataSales(mappedResponse);
       }
@@ -81,7 +85,17 @@ export default function CardOfSales({ className }: CardOfSalesProps) {
             <CardTitle>Vendas Hoje</CardTitle>
             <CardDescription>Resumo das vendas</CardDescription>
           </div>
-          <Button variant="outline" className="flex gap-x-2">
+          <Button
+            variant="outline"
+            className="flex gap-x-2"
+            onClick={() =>
+              toast({
+                title: "Dados exportados com sucesso!",
+                description: "Mentira, está tudo mockado! 😅",
+                className: "bg-green-500 text-white",
+              })
+            }
+          >
             <Upload className="h-4 w-4" />
             Exportar
           </Button>

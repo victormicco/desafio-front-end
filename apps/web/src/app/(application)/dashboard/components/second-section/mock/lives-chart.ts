@@ -1,30 +1,30 @@
 export const livesChartData = [
   {
-    previousMonth: 2200,
-    currentMonth: 4500,
+    previousMonth: 2300,
+    currentMonth: 4600,
   },
   {
-    previousMonth: 2600,
-    currentMonth: 3900,
+    previousMonth: 2700,
+    currentMonth: 4000,
   },
   {
-    previousMonth: 1700,
+    previousMonth: 1800,
+    currentMonth: 4300,
+  },
+  {
+    previousMonth: 1600,
+    currentMonth: 3200,
+  },
+  {
+    previousMonth: 2100,
     currentMonth: 4200,
   },
   {
-    previousMonth: 1500,
-    currentMonth: 3100,
-  },
-  {
     previousMonth: 2000,
-    currentMonth: 4100,
+    currentMonth: 3000,
   },
   {
-    previousMonth: 1900,
-    currentMonth: 2900,
-  },
-  {
-    previousMonth: 3100,
-    currentMonth: 5200,
+    previousMonth: 3200,
+    currentMonth: 5300,
   },
 ];

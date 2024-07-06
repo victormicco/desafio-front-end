@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   CartesianGrid,
   Legend,
@@ -10,13 +10,46 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { dataPlatformCard } from "../mock/data-platform";
+import { dataPlatformCard as mockDataPlatformCard } from "../mock/data-platform";
+import { GetDataPlatformResponse } from "@/services/dashboard/types";
 
 type CardPlatformProps = {
   className?: string;
+  getDataPlatformInversion: () => Promise<GetDataPlatformResponse[]>;
 };
 
-export function CardPlatform({ className }: CardPlatformProps) {
+export function CardPlatform({
+  className,
+  getDataPlatformInversion,
+}: CardPlatformProps) {
+  const [dataPlatformCard, setDataPlatformCard] =
+    useState(mockDataPlatformCard);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getDataPlatformInversion();
+
+        if (
+          Array.isArray(data) &&
+          data.every(
+            (item) =>
+              item.name &&
+              item["TD Consultoria"] !== undefined &&
+              item["RIKO Plataforma"] !== undefined &&
+              item["Blue Serviços"] !== undefined
+          )
+        ) {
+          setDataPlatformCard(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch data from API, using mock data.", error);
+      }
+    }
+
+    fetchData();
+  }, [getDataPlatformInversion]);
+
   const chartLines = useMemo(() => {
     const lines = [
       { key: "TD Consultoria", color: "#A700F8" },

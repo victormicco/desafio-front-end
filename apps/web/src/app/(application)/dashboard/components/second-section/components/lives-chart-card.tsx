@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -19,7 +18,8 @@ import {
 } from "@/components/ui/card";
 
 import { GitCommitHorizontal } from "lucide-react";
-import { livesChartData } from "../mock/lives-chart";
+import { livesChartData as mockLivesChartData } from "../mock/lives-chart";
+import { GetLivesChartDataResponse } from "@/services/dashboard/types";
 
 type DataItem = {
   previousMonth: number;
@@ -74,14 +74,34 @@ const CustomAreaChart: React.FC<CustomAreaChartProps> = ({ data }) => (
   </ResponsiveContainer>
 );
 
-const CardLifeAlt = () => {
+type CardLifeAltProps = {
+  getLivesChartData: () => Promise<GetLivesChartDataResponse[]>;
+};
+
+const CardLifeAlt: React.FC<CardLifeAltProps> = ({ getLivesChartData }) => {
+  const [data, setData] =
+    useState<GetLivesChartDataResponse[]>(mockLivesChartData);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await getLivesChartData();
+        setData(response);
+      } catch (error) {
+        console.error("Failed to fetch data from API, using mock data.", error);
+      }
+    }
+
+    fetchData();
+  }, [getLivesChartData]);
+
   return (
     <Card className="xl:w-1/3 ">
       <CardHeader>
         <CardTitle>Vidas</CardTitle>
       </CardHeader>
       <CardContent className="h-3/5 w-full">
-        <CustomAreaChart data={livesChartData} />
+        <CustomAreaChart data={data} />
       </CardContent>
       <CardFooter className="flex justify-center gap-4">
         <div className="flex flex-col items-center">
