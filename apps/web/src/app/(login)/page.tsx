@@ -13,7 +13,7 @@ export default function Component() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    router.push("/");
+    router.push("/dashboard");
   };
 
   return (

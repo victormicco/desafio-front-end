@@ -4,7 +4,7 @@ import ThirdSection from "./third-section/third-section";
 
 export default function WholeSection() {
   return (
-    <section className="max-h-full p-4 w-full flex-col  flex justify-center items-center gap-y-5">
+    <section className="">
       <FirstSection />
       <SecondSection />
       <ThirdSection />

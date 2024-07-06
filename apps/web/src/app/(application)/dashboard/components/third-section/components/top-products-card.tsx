@@ -67,8 +67,8 @@ export const TopProductCard: React.FC<ProductCardProps> = ({ customClass }) => {
       <CardHeader>
         <CardTitle>Top Produtos</CardTitle>
       </CardHeader>
-      <CardContent>
-        <Table>
+      <CardContent className="h-full">
+        <Table className="h-full">
           <TableHeader>
             <TableRow>
               <TableHead>#</TableHead>
@@ -77,7 +77,7 @@ export const TopProductCard: React.FC<ProductCardProps> = ({ customClass }) => {
               <TableHead>%</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className="h-1/4">
             {productsData.map((product) => (
               <TableRow key={product.id}>
                 <TableCell>{product.id}</TableCell>
@@ -97,7 +97,7 @@ export const TopProductCard: React.FC<ProductCardProps> = ({ customClass }) => {
                   </div>
                   <span className="ml-2">{product.leverage}%</span>
                 </TableCell>
-                <TableCell>
+                <TableCell className="">
                   <p
                     className={`text-center rounded-md border ${getClassNames(
                       product.category

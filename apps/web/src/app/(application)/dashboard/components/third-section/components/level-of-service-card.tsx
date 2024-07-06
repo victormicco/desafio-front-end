@@ -42,7 +42,7 @@ const CustomLegend: React.FC<LegendProps> = ({ payload }) => (
 
 export const ServiceLevelChart: React.FC = () => {
   return (
-    <Card className="xl:w-1/4 bg-white pb-4 h-full">
+    <Card className="xl:w-1/4 pb-4 h-full">
       <CardHeader className="flex flex-row justify-between">
         <CardTitle className="flex flex-col gap-3 text-2xl">
           Nível de Serviço

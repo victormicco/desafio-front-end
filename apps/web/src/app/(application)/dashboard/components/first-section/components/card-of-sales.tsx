@@ -34,7 +34,7 @@ export default function CardOfSales({ className }: CardOfSalesProps) {
           return (
             <div
               key={itemCard.id}
-              className={`flex  p-4 border rounded-md  flex-col justify-start bg-opacity-20 ${itemCard.backgroundColor} gap-y-2 items-start  `}
+              className={`flex  p-4 border rounded-md  flex-col justify-start bg-opacity-20 ${itemCard.backgroundColor} gap-y-2 items-start  xl:w-1/4 min-w-40`}
             >
               <Icon
                 className={`h-10 w-10 ${itemCard.backgroundColor} md:p-2 p-1 rounded-full text-background`}

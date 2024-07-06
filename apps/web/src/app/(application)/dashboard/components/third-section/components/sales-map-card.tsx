@@ -35,11 +35,11 @@ export const SalesMap: React.FC = () => {
         <CardHeader>
           <CardTitle>Mapeamento de Vendas por UF</CardTitle>
         </CardHeader>
-        <CardContent className="flex overflow-auto h-[205px] justify-center">
+        <CardContent className="flex overflow-auto xl:h-[180px] justify-center">
           <Chart
             chartType="GeoChart"
             width={300}
-            height={400}
+            height={150}
             data={chartData}
             options={mapOptions}
             className=""

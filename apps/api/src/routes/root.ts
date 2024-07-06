@@ -3,9 +3,25 @@ import type { FastifyInstance } from "fastify";
 
 export async function rootRouter(
   app: FastifyInstance,
-  rootService: RootService,
+  rootService: RootService
 ) {
-  app.get("/", async (request, reply) => {
-    return rootService.getHello();
+  app.get("/dataSales", async (request, reply) => {
+    return rootService.todaySales();
+  });
+
+  app.get("/dataPlatform", async (request, reply) => {
+    return rootService.dataPlataform();
+  });
+
+  app.get("/totalRevenue", async (request, reply) => {
+    return rootService.totalRevenue();
+  });
+
+  app.get("/livesChartData", async (request, reply) => {
+    return rootService.livesChartData();
+  });
+
+  app.get("/realityStats", async (request, reply) => {
+    return rootService.realityStats();
   });
 }
