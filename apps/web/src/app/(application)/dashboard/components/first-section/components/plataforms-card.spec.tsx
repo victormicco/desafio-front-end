@@ -5,7 +5,6 @@ import "@testing-library/jest-dom";
 import { describe, it, expect, vi } from "vitest";
 import { CardPlatform } from "./platforms-card";
 
-
 vi.mock("recharts", async () => {
   const actual = await vi.importActual("recharts");
   return {

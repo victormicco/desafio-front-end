@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <main className="min-h-[90vh] p-4">
+    <main className="min-h-[90vh] p-4 xl:w-[85vw]">
       <WholeSection />
     </main>
   );

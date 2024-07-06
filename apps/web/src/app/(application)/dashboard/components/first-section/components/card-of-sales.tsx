@@ -28,21 +28,21 @@ export default function CardOfSales({ className }: CardOfSalesProps) {
           </Button>
         </div>
       </CardHeader>
-      <CardContent className="flex gap-x-14 w-full overflow-auto">
+      <CardContent className="flex gap-x-14 w-full overflow-x-auto h-48">
         {dataSales.map((itemCard) => {
           const Icon = itemCard.icon;
           return (
             <div
               key={itemCard.id}
-              className={`flex  p-4 border rounded-md  flex-col justify-start bg-opacity-20 ${itemCard.backgroundColor}  gap-y-2 items-start`}
+              className={`flex  p-4 border rounded-md  flex-col justify-start bg-opacity-20 ${itemCard.backgroundColor} gap-y-2 items-start  `}
             >
               <Icon
-                className={`h-10 w-10 ${itemCard.backgroundColor} p-2 rounded-full text-background`}
+                className={`h-10 w-10 ${itemCard.backgroundColor} md:p-2 p-1 rounded-full text-background`}
               />
-              <div>
+              <div className="h-24">
                 <h2 className="text-xl font-semibold">{itemCard.value}</h2>
                 <h3 className="text-sm text-gray-500">{itemCard.title}</h3>
-                <p className="text-sm text-blue-500">{itemCard.percentage}</p>
+                <p className="text-xs text-blue-600">{itemCard.percentage}</p>
               </div>
             </div>
           );

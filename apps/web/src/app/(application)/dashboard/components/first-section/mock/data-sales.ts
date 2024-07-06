@@ -6,7 +6,7 @@ export const dataSales = [
     title: "Total de vendas",
     icon: GanttChartSquare,
     value: "$45,231.89",
-    percentage: "+20.1% do mês passado",
+    percentage: "+20.1%",
     backgroundColor: "bg-red-500",
   },
   {
@@ -14,7 +14,7 @@ export const dataSales = [
     title: "Total de contratos",
     icon: File,
     value: "350",
-    percentage: "+180.1% do mês passado",
+    percentage: "+180.1%",
     backgroundColor: "bg-orange-500",
   },
   {
@@ -22,7 +22,7 @@ export const dataSales = [
     title: "Implantadas",
     icon: Tag,
     value: "5",
-    percentage: "+19% do mês passado",
+    percentage: "+19%",
     backgroundColor: "bg-green-500",
   },
   {
@@ -30,7 +30,7 @@ export const dataSales = [
     title: "Novos contratos",
     icon: UserPlus,
     value: "8",
-    percentage: "+201 desde a última hora",
+    percentage: "+201",
     backgroundColor: "bg-violet-500",
   },
 ];

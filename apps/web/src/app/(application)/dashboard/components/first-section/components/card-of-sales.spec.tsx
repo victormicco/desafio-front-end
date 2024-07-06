@@ -13,7 +13,7 @@ describe("CardOfSales Component", () => {
   });
 
   it("should render the export button", () => {
-    render(<CardOfSales />);
+    render(<CardOfSales />);  
     const button = screen.getByRole("button", { name: /Exportar/i });
     expect(button).toBeInTheDocument();
   });
