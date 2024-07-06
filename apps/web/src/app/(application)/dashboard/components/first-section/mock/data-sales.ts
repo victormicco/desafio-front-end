@@ -5,7 +5,7 @@ export const dataSales = [
     id: 1,
     title: "Total de vendas",
     icon: GanttChartSquare,
-    value: "$45,231.89",
+    value: "$09",
     percentage: "+20.1%",
     backgroundColor: "bg-red-500",
   },

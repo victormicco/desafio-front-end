@@ -76,11 +76,11 @@ const CustomAreaChart: React.FC<CustomAreaChartProps> = ({ data }) => (
 
 const CardLifeAlt = () => {
   return (
-    <Card>
+    <Card className="xl:w-1/3 ">
       <CardHeader>
         <CardTitle>Vidas</CardTitle>
       </CardHeader>
-      <CardContent className="h-2/4 w-full">
+      <CardContent className="h-3/5 w-full">
         <CustomAreaChart data={livesChartData} />
       </CardContent>
       <CardFooter className="flex justify-center gap-4">
