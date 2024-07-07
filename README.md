@@ -1,4 +1,5 @@
 # Desafio Blue Front-End
+- [Link em Produção](https://desafio-front-end-phi.vercel.app/)
 - E-mail para contato: victor.oficial093@gmail.com
 - [Linkedin](https://www.linkedin.com/in/victormicco/)
 ## O que há nele?
@@ -66,7 +67,7 @@
    ```
 
 ## To do
-- [ ] Arrumar Responsividade
+- [x] Arrumar Responsividade
 - [ ]  E2E Backend
 - [ ]  E2E Front
 - [ ]  S.O.L.I.D Back
