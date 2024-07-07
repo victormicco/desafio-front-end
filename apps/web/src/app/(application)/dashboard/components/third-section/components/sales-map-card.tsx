@@ -56,7 +56,7 @@ export const SalesMap: React.FC<SalesMapProps> = ({ getMapOfSales }) => {
         <CardHeader>
           <CardTitle>Mapeamento de Vendas por UF</CardTitle>
         </CardHeader>
-        <CardContent className="flex overflow-auto xl:h-[180px] justify-center">
+        <CardContent className="flex overflow-auto  justify-center">
           <Chart
             chartType="GeoChart"
             width={300}
