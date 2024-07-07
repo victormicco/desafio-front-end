@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import type { GetTotalRevenueResponse } from "@/services/dashboard/types";
+import type React from "react";
+import { useEffect, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -9,8 +12,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { GetTotalRevenueResponse } from "@/services/dashboard/types";
 import { totalRevenueData as mockTotalRevenueData } from "../mock/total-revenue-data";
 
 type TotalRevenueProps = {

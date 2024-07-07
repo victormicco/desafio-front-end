@@ -1,9 +1,9 @@
 "use client";
 
+import { dashboardService } from "@/services/dashboard";
 import CardLifeAlt from "./components/lives-chart-card";
 import { RealityCard } from "./components/reality-charts-card";
 import TotalRevenue from "./components/total-revenue";
-import { dashboardService } from "@/services/dashboard";
 
 export default function SecondSection() {
   return (

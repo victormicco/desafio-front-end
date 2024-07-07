@@ -1,4 +1,4 @@
-import { ServiceLevelData } from "../components/level-of-service-card";
+import type { ServiceLevelData } from "../components/level-of-service-card";
 
 export const serviceLevelData: ServiceLevelData[] = [
   { expectation: 82, reality: 78 },

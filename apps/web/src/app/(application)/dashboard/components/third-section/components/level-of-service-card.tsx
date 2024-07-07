@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { GetServiceLevelResponse } from "@/services/dashboard/types";
+import type React from "react";
+import { useEffect, useState } from "react";
 import {
-  BarChart,
   Bar,
+  BarChart,
+  Legend,
+  type LegendProps,
   ResponsiveContainer,
   Tooltip,
-  Legend,
-  LegendProps,
 } from "recharts";
-import { GetServiceLevelResponse } from "@/services/dashboard/types";
 
 export interface ServiceLevelData {
   expectation: number;
@@ -17,7 +18,7 @@ export interface ServiceLevelData {
 
 const calculateTotal = (
   key: keyof ServiceLevelData,
-  data: ServiceLevelData[]
+  data: ServiceLevelData[],
 ): number => {
   return data.reduce((sum, item) => sum + item[key], 0);
 };

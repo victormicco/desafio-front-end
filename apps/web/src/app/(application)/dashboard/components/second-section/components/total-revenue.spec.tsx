@@ -1,8 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
-import TotalRevenue from "./total-revenue";
+import { describe, expect, it, vi } from "vitest";
 import { totalRevenueData } from "../mock/total-revenue-data";
+import TotalRevenue from "./total-revenue";
 
 type DataKeys = "dia" | "Pendente" | "Concluido";
 
@@ -52,7 +52,7 @@ describe("TotalRevenue Component", () => {
 
   it("should render the BarChart with data", async () => {
     const { container } = render(
-      <TotalRevenue getTotalRevenueData={getMockedTotalRevenueData} />
+      <TotalRevenue getTotalRevenueData={getMockedTotalRevenueData} />,
     );
     await waitFor(() => {
       const barChart = container.querySelector(".recharts-barchart");
@@ -62,7 +62,7 @@ describe("TotalRevenue Component", () => {
 
   it("should render the correct number of bars in the chart", async () => {
     const { container } = render(
-      <TotalRevenue getTotalRevenueData={getMockedTotalRevenueData} />
+      <TotalRevenue getTotalRevenueData={getMockedTotalRevenueData} />,
     );
     await waitFor(() => {
       const bars = container.querySelectorAll(".recharts-bar");

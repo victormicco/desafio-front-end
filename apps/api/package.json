@@ -9,7 +9,6 @@
     "dev": "tsx watch src/index.ts",
     "start:debug": "tsx watch --inspect-brk src/index.ts",
     "start:prod": "node .",
-    "lint": "biome check --apply .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",

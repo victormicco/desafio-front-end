@@ -1,9 +1,9 @@
 "use client";
 
-import { TopProductCard } from "./components/top-products-card";
+import { dashboardService } from "@/services/dashboard";
 import { ServiceLevelChart } from "./components/level-of-service-card";
 import { SalesMap } from "./components/sales-map-card";
-import { dashboardService } from "@/services/dashboard";
+import { TopProductCard } from "./components/top-products-card";
 
 export default function ThirdSection() {
   return (

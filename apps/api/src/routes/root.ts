@@ -3,7 +3,7 @@ import type { FastifyInstance } from "fastify";
 
 export async function rootRouter(
   app: FastifyInstance,
-  rootService: RootService
+  rootService: RootService,
 ) {
   app.get("/dataSales", async (request, reply) => {
     return rootService.todaySales();

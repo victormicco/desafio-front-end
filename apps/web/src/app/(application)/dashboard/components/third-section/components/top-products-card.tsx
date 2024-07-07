@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -8,8 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import type { GetTopProductsResponse } from "@/services/dashboard/types";
+import { useEffect, useState } from "react";
 import { productsData as mockProductsData } from "../mock/top-products-data";
-import { GetTopProductsResponse } from "@/services/dashboard/types";
 
 type ProductCardProps = {
   getProductsData: () => Promise<GetTopProductsResponse[]>;
@@ -103,12 +103,12 @@ export const TopProductCard: React.FC<ProductCardProps> = ({
                 <TableCell>
                   <div
                     className={`relative w-full h-2 rounded-lg ${getProgressBackgroundClassNames(
-                      product.category
+                      product.category,
                     )}`}
                   >
                     <div
                       className={`absolute top-0 left-0 h-2 rounded-lg ${getProgressClassNames(
-                        product.category
+                        product.category,
                       )}`}
                       style={{ width: `${product.leverage}%` }}
                     />
@@ -118,7 +118,7 @@ export const TopProductCard: React.FC<ProductCardProps> = ({
                 <TableCell className="">
                   <p
                     className={`text-center rounded-md border ${getClassNames(
-                      product.category
+                      product.category,
                     )}`}
                   >
                     {product.percentage}%

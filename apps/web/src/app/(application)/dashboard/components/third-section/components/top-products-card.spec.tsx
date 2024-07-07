@@ -1,8 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
-import { TopProductCard } from "./top-products-card";
+import { describe, expect, it, vi } from "vitest";
 import { productsData as mockProductsData } from "../mock/top-products-data";
+import { TopProductCard } from "./top-products-card";
 
 // Define types for the mocked components
 type CardProps = {
@@ -67,10 +67,10 @@ describe("TopProductCard Component", () => {
       mockProductsData.forEach((product) => {
         const productName = screen.getByText(new RegExp(product.name, "i"));
         const leverage = screen.getByText(
-          new RegExp(`${product.leverage}%`, "i")
+          new RegExp(`${product.leverage}%`, "i"),
         );
         const percentage = screen.getByText(
-          new RegExp(`${product.percentage}%`, "i")
+          new RegExp(`${product.percentage}%`, "i"),
         );
 
         expect(productName).toBeInTheDocument();

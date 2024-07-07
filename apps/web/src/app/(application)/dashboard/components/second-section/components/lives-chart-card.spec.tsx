@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { livesChartData } from "../mock/lives-chart";
 import CardLifeAlt from "./lives-chart-card";
@@ -58,7 +58,7 @@ describe("CardLifeAlt Component", () => {
 
   it("should render the AreaChart with data", async () => {
     const { container } = render(
-      <CardLifeAlt getLivesChartData={getMockedLivesChartData} />
+      <CardLifeAlt getLivesChartData={getMockedLivesChartData} />,
     );
     await waitFor(() => {
       const areaChart = container.querySelector(".recharts-areachart");
@@ -68,7 +68,7 @@ describe("CardLifeAlt Component", () => {
 
   it("should render the correct number of areas in the chart", async () => {
     const { container } = render(
-      <CardLifeAlt getLivesChartData={getMockedLivesChartData} />
+      <CardLifeAlt getLivesChartData={getMockedLivesChartData} />,
     );
     await waitFor(() => {
       const areas = container.querySelectorAll(".recharts-area");

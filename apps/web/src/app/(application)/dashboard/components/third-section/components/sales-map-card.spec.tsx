@@ -1,14 +1,14 @@
-import React from "react";
+import type { GetMapOfSalesResponse } from "@/services/dashboard/types";
 import { render, screen } from "@testing-library/react";
-import { SalesMap } from "./sales-map-card";
-import { salesMapDataRaw } from "../mock/salesMapDataRaw";
+import React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { GetMapOfSalesResponse } from "@/services/dashboard/types";
+import { salesMapDataRaw } from "../mock/salesMapDataRaw";
+import { SalesMap } from "./sales-map-card";
 
 vi.mock("react-google-charts");
 
 const mockGetMapOfSales: () => Promise<GetMapOfSalesResponse[]> = vi.fn(() =>
-  Promise.resolve(salesMapDataRaw)
+  Promise.resolve(salesMapDataRaw),
 );
 
 describe("SalesMap Component", () => {

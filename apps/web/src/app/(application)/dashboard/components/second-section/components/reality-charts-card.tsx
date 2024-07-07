@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -6,10 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
+import type { GetRealityStatsResponse } from "@/services/dashboard/types";
 import { Briefcase, Ticket as TicketIcon } from "lucide-react";
+import type React from "react";
+import { useEffect, useState } from "react";
+import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { realityStats as mockRealityStats } from "../mock/reality-charts-data";
-import { GetRealityStatsResponse } from "@/services/dashboard/types";
 
 type RealityCardProps = {
   getRealityStats: () => Promise<GetRealityStatsResponse[]>;

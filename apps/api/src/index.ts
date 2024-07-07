@@ -1,5 +1,5 @@
-import Fastify from "fastify";
 import cors from "@fastify/cors";
+import Fastify from "fastify";
 import { rootRouter } from "./routes/root";
 import { RootService } from "./services/root";
 

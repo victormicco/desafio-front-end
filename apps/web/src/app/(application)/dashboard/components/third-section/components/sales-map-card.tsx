@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { GetMapOfSalesResponse } from "@/services/dashboard/types";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import { salesMapDataRaw } from "../mock/salesMapDataRaw";
-import { GetMapOfSalesResponse } from "@/services/dashboard/types";
 
 const mapOptions = {
   region: "BR",
@@ -34,7 +35,7 @@ type SalesMapProps = {
 
 export const SalesMap: React.FC<SalesMapProps> = ({ getMapOfSales }) => {
   const [chartData, setChartData] = useState<(string | number)[][]>(
-    transformData(salesMapDataRaw)
+    transformData(salesMapDataRaw),
   );
 
   useEffect(() => {

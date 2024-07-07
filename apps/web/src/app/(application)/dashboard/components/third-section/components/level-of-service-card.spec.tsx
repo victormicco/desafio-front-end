@@ -1,9 +1,9 @@
-import React from "react";
-import { render, waitFor, screen } from "@testing-library/react";
-import { ServiceLevelChart } from "./level-of-service-card";
-import { serviceLevelData } from "../mock/service-level-data";
+import type { GetServiceLevelResponse } from "@/services/dashboard/types";
+import { render, screen, waitFor } from "@testing-library/react";
+import type React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { GetServiceLevelResponse } from "@/services/dashboard/types";
+import { serviceLevelData } from "../mock/service-level-data";
+import { ServiceLevelChart } from "./level-of-service-card";
 
 vi.mock("recharts", async (importOriginal) => {
   const actual = await importOriginal();
@@ -22,7 +22,7 @@ vi.mock("recharts", async (importOriginal) => {
 });
 
 const mockGetServiceLevel: () => Promise<GetServiceLevelResponse[]> = vi.fn(
-  () => Promise.resolve(serviceLevelData)
+  () => Promise.resolve(serviceLevelData),
 );
 
 describe("ServiceLevelChart Component", () => {

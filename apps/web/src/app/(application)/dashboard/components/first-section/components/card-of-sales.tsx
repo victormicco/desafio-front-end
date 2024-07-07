@@ -6,20 +6,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Upload } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import { dashboardService } from "@/services/dashboard";
-import { dataSales as mockDataSales } from "../mock/data-sales";
+import type { GetDataSalesResponse } from "@/services/dashboard/types";
+import { Upload } from "lucide-react";
 import {
-  GanttChartSquare,
   File,
+  GanttChartSquare,
+  type LucideProps,
   Tag,
   UserPlus,
-  LucideProps,
 } from "lucide-react";
-import { ForwardRefExoticComponent, RefAttributes } from "react";
-import { GetDataSalesResponse } from "@/services/dashboard/types";
-import { useToast } from "@/components/ui/use-toast";
+import { useEffect, useState } from "react";
+import type { ForwardRefExoticComponent, RefAttributes } from "react";
+import { dataSales as mockDataSales } from "../mock/data-sales";
 
 type CardOfSalesProps = {
   className?: string;
@@ -56,7 +56,7 @@ export default function CardOfSales({
             item.icon &&
             item.value &&
             item.percentage &&
-            item.backgroundColor
+            item.backgroundColor,
         )
       ) {
         const mappedResponse = response.map((item) => ({

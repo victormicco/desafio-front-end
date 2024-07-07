@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import React from "react";
 
 export const BackgroundBeams = React.memo(
   ({ className }: { className?: string }) => {
@@ -61,7 +61,7 @@ export const BackgroundBeams = React.memo(
       <div
         className={cn(
           "absolute  h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
-          className
+          className,
         )}
       >
         <svg
@@ -108,7 +108,7 @@ export const BackgroundBeams = React.memo(
                 transition={{
                   duration: Math.random() * 5 + 5,
                   ease: "easeInOut",
-                  repeat: Infinity,
+                  repeat: Number.POSITIVE_INFINITY,
                   delay: Math.random() * 2,
                 }}
               >
@@ -135,7 +135,7 @@ export const BackgroundBeams = React.memo(
         </svg>
       </div>
     );
-  }
+  },
 );
 
 BackgroundBeams.displayName = "BackgroundBeams";

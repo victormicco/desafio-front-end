@@ -6,10 +6,10 @@ import { SpainFlag } from "./spain";
 import { UnitedStatesFlag } from "./unitedStates";
 
 export {
-	BrazilFlag,
-	FranceFlag,
-	GermanyFlag,
-	ItalyFlag,
-	SpainFlag,
-	UnitedStatesFlag,
+  BrazilFlag,
+  FranceFlag,
+  GermanyFlag,
+  ItalyFlag,
+  SpainFlag,
+  UnitedStatesFlag,
 };

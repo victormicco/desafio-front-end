@@ -1,8 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
-import { RealityCard } from "./reality-charts-card";
+import { describe, expect, it, vi } from "vitest";
 import { realityStats as mockRealityStats } from "../mock/reality-charts-data";
+import { RealityCard } from "./reality-charts-card";
 
 vi.mock("recharts", async () => {
   const actual = await vi.importActual("recharts");
@@ -37,7 +37,7 @@ describe("RealityCard Component", () => {
 
   it("should render the BarChart with data", async () => {
     const { container } = render(
-      <RealityCard getRealityStats={mockGetRealityStats} />
+      <RealityCard getRealityStats={mockGetRealityStats} />,
     );
     await waitFor(() => {
       const barChart = container.querySelector(".recharts-barchart");
@@ -47,7 +47,7 @@ describe("RealityCard Component", () => {
 
   it("should render the correct number of bars in the chart", async () => {
     const { container } = render(
-      <RealityCard getRealityStats={mockGetRealityStats} />
+      <RealityCard getRealityStats={mockGetRealityStats} />,
     );
     await waitFor(() => {
       const bars = container.querySelectorAll(".recharts-bar");

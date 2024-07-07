@@ -1,4 +1,4 @@
-import { SalesData } from "../components/sales-map-card";
+import type { SalesData } from "../components/sales-map-card";
 
 const getRandomSales = () => Math.floor(Math.random() * 10000000);
 

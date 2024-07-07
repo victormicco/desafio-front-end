@@ -1,5 +1,5 @@
 import { apiDashboard } from "@/lib/ky";
-import {
+import type {
   GetDataPlatformResponse,
   GetDataSalesResponse,
   GetLivesChartDataResponse,

@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from "react";
-import {
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  Tooltip,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Legend,
-} from "recharts";
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import type React from "react";
+import { useEffect, useState } from "react";
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
+import type { GetLivesChartDataResponse } from "@/services/dashboard/types";
 import { GitCommitHorizontal } from "lucide-react";
 import { livesChartData as mockLivesChartData } from "../mock/lives-chart";
-import { GetLivesChartDataResponse } from "@/services/dashboard/types";
 
 type DataItem = {
   previousMonth: number;

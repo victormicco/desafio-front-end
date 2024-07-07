@@ -1,5 +1,6 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { GetDataPlatformResponse } from "@/services/dashboard/types";
 import { useEffect, useMemo, useState } from "react";
 import {
   CartesianGrid,
@@ -11,7 +12,6 @@ import {
   YAxis,
 } from "recharts";
 import { dataPlatformCard as mockDataPlatformCard } from "../mock/data-platform";
-import { GetDataPlatformResponse } from "@/services/dashboard/types";
 
 type CardPlatformProps = {
   className?: string;
@@ -37,7 +37,7 @@ export function CardPlatform({
               item.name &&
               item["TD Consultoria"] !== undefined &&
               item["RIKO Plataforma"] !== undefined &&
-              item["Blue Serviços"] !== undefined
+              item["Blue Serviços"] !== undefined,
           )
         ) {
           setDataPlatformCard(data);

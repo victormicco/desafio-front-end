@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import type React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import {
   Form,
@@ -101,7 +101,11 @@ export default function Component() {
                 <FormItem>
                   <FormLabel>Senha</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite sua senha " {...field} />
+                    <Input
+                      placeholder="Digite sua senha "
+                      {...field}
+                      type="password"
+                    />
                   </FormControl>
 
                   <FormMessage />

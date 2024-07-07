@@ -1,10 +1,4 @@
 import {
-  EnvelopeClosedIcon,
-  FaceIcon,
-  GearIcon,
-  PersonIcon,
-} from "@radix-ui/react-icons";
-import {
   Bell,
   CalendarIcon,
   ChevronDown,

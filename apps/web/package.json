@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "pnpx @biomejs/biome check --write",
+
     "test": "vitest"
   },
   "dependencies": {

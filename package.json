@@ -6,7 +6,8 @@
     "dev": "turbo run dev --parallel --",
     "build": "turbo run build --",
     "web": "pnpm --filter \"@blue-challenge/web\" --",
-    "api": "pnpm --filter \"@blue-challenge/api\" --"
+    "api": "pnpm --filter \"@blue-challenge/api\" --",
+    "lint": "biome check --write "
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",

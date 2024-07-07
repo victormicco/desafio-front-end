@@ -1,16 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
-import { CardPlatform } from "./platforms-card";
+import { describe, expect, it, vi } from "vitest";
 import { dataPlatformCard } from "../mock/data-platform";
+import { CardPlatform } from "./platforms-card";
 
 async function getMockedPlatformData() {
   return dataPlatformCard;
 }
 
-
 type DataKeys = "name" | "TD Consultoria" | "RIKO Plataforma" | "Blue Serviços";
-
 
 vi.mock("recharts", async () => {
   const actual = await vi.importActual("recharts");
@@ -53,7 +51,7 @@ describe("CardPlatform Component", () => {
 
   it("should render the LineChart with data", async () => {
     const { container } = render(
-      <CardPlatform getDataPlatformInversion={getMockedPlatformData} />
+      <CardPlatform getDataPlatformInversion={getMockedPlatformData} />,
     );
     await waitFor(() => {
       const lineChart = container.querySelector(".recharts-linechart");
@@ -63,7 +61,7 @@ describe("CardPlatform Component", () => {
 
   it("should render the correct number of lines in the chart", async () => {
     const { container } = render(
-      <CardPlatform getDataPlatformInversion={getMockedPlatformData} />
+      <CardPlatform getDataPlatformInversion={getMockedPlatformData} />,
     );
     await waitFor(() => {
       const lines = container.querySelectorAll(".recharts-line");
