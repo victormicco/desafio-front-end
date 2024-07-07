@@ -1,4 +1,6 @@
 # Desafio Blue Front-End
+- E-mail para contato: victor.oficial093@gmail.com
+- [Linkedin](https://www.linkedin.com/in/victormicco/)
 ## O que há nele?
 - Foi utilizado Turborepo para construir uma arquitetura de Monorepo compartilhando pacotes entre o projeto de front-end e as rotas de back-end.
 - Princípio de inversão de dependência nos componentes para manter a boa qualidade e facilidade de testes.
